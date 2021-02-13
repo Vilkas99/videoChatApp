@@ -36,11 +36,8 @@ function App() {
   const socket = useRef(); //Reference for the socket (It needs to be constant across re-renders => useRef hook)
 
   useEffect(() => {
-    socket.current = io.connect("https://git.heroku.com/prueba-hack.git", {
+    socket.current = io.connect("http://localhost:8000/", {
       withCredentials: true,
-      extraHeaders: {
-        "my-custom-header": "abcd",
-      },
     }); //We connect to the io api => (Connecting with the main route in the server (""))
     navigator.mediaDevices //Acces to the navigator media
       .getUserMedia({ video: true, audio: true }) //We obtain the video and audio
